@@ -1,6 +1,6 @@
-# 🔥 FitAI Trainer — Project Documentation
+# 🔥 MuscleForge AI Trainer — Project Documentation
 
-An AI-powered fitness trainer web app that generates personalised workout plans and answers exercise and nutrition questions. Built with Vite React on the frontend and Express + MongoDB on the backend, using Google Gemini as the AI engine.
+  An AI-powered fitness trainer web app that generates personalised workout plans and answers exercise and nutrition questions, using Google Gemini as the AI engine.
 
 ---
 
@@ -10,7 +10,7 @@ An AI-powered fitness trainer web app that generates personalised workout plans 
 - **AI workout generation** — Clicking "Generate" sends the selection to the backend, which calls Gemini AI with a carefully crafted server-side prompt and returns a structured workout plan with warm-up, main exercises (sets/reps/rest), cool-down, and a pro tip
 - **AI chat trainer** — A follow-up chat box lets users ask anything about exercise, form, nutrition or recovery; the backend filters every message through a topic guard and blocks off-topic questions automatically
 - **History** — Every generated workout is saved to MongoDB and displayed on the History page
-- **Auth-ready architecture** — Login, signup, JWT auth, protected routes and bcrypt password hashing are all built but toggled off, so you can activate them with minimal code changes
+
 
 ---
 
@@ -32,12 +32,7 @@ An AI-powered fitness trainer web app that generates personalised workout plans 
 | Express.js | Web framework |
 | MongoDB | Database |
 | Mongoose | ODM / schema modelling |
-| Google Gemini 1.5 Flash | AI workout generation and chat |
-| bcryptjs | Password hashing |
-| jsonwebtoken | JWT auth |
-| helmet | HTTP security headers |
-| express-rate-limit | API rate limiting |
-| morgan | HTTP request logging |
+| Google Gemini 2.5 Flash | AI workout generation and chat |
 | dotenv | Environment config |
 
 ---
@@ -151,8 +146,6 @@ To change what topics are allowed or blocked, edit the ALLOWED / BLOCKED lists i
 - **Helmet** sets secure HTTP headers on every response
 - **CORS** is locked to `FRONTEND_URL` — no other origins accepted
 - **Rate limiting**: 100 req/15 min globally, 10 AI calls/min per IP, 10 auth attempts/15 min per IP
-- **Passwords** are hashed with bcrypt (cost factor 12) — never stored in plain text
-- **JWT** is signed with a secret only the server knows
 - **Input validation** — muscle group is checked against a whitelist before any AI call
 - **JSON body limit** is capped at 10kb to prevent payload attacks
 - **AI prompts** are server-side only — never in the frontend bundle
@@ -184,55 +177,5 @@ To change what topics are allowed or blocked, edit the ALLOWED / BLOCKED lists i
   createdAt:   Date,
   updatedAt:   Date
 }
+
 ```
-
-### `users` (auth-ready)
-```js
-{
-  _id:       ObjectId,
-  name:      String,
-  email:     String (unique),
-  password:  String (bcrypt hash, select: false),
-  role:      "user" | "admin",
-  isActive:  Boolean,
-  createdAt: Date,
-  updatedAt: Date
-}
-```
-
----
-
-## Adding Login & Signup
-
-The full auth system is built and waiting. Here is exactly what to uncomment:
-
-### Backend
-In `routes/workout.js` and `routes/chat.js`:
-```js
-// Uncomment this line in both files:
-const { protect } = require('../middleware/auth')
-
-// And add protect to the routes:
-router.post('/generate', aiLimiter, protect, generateWorkout)
-router.get('/history',              protect, getWorkoutHistory)
-router.post('/message', aiLimiter,  protect, sendMessage)
-```
-
-### Frontend
-1. `AuthContext.jsx` — implement `login()` and `signup()` to call `authLogin()` / `authSignup()` from `api/index.js`, store the token in `localStorage`, and call `setUser()`
-2. `Navbar.jsx` — uncomment the auth nav block (user greeting + logout button / login + signup links)
-3. `ProtectedRoute.jsx` — uncomment the redirect block
-4. `Login.jsx` and `Signup.jsx` — uncomment `useAuth`, `navigate`, and the actual API call
-5. `App.jsx` — the Login and Signup routes are already imported and registered
-
----
-
-## Extending the App
-
-**Add a new page** — create `src/pages/NewPage.jsx`, import it in `App.jsx`, add a `<Route>` and a `<Link>` in `Navbar.jsx`.
-
-**Add a new API endpoint** — create the controller function, add a route in the relevant `routes/` file, and add a service function in `src/api/index.js`.
-
-**Change the AI model** — edit `config/gemini.js` → `getModel()`. Swap `gemini-1.5-flash` for `gemini-1.5-pro` for higher quality, or `gemini-1.0-pro` for lower cost.
-
-**Add a new muscle group** — add the string to `VALID_GROUPS` in `workoutController.js` and add a button object to `MUSCLES` in `MuscleSelector.jsx`.
