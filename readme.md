@@ -39,7 +39,7 @@
 
 ## Project Structure
 
-### Frontend (`fitness-frontend/`)
+### Frontend (`frontend/`)
 
 ```
 src/
@@ -69,7 +69,7 @@ src/
 └── index.css              # Global CSS design tokens + animations
 ```
 
-### Backend (`fitness-backend/`)
+### Backend (`backend/`)
 
 ```
 ├── config/
