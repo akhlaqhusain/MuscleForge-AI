@@ -24,7 +24,7 @@ export default function Home() {
       const data = await generateWorkout(selected)
       setWorkout(data.workout)
       setShowChat(true)
-      toast.success('Workout plan ready! 🔥')
+      toast.success('Workout plan ready!')
     } catch (err) {
       toast.error(err.message)
     } finally {
@@ -36,12 +36,13 @@ export default function Home() {
     <div style={{ maxWidth: '820px', margin: '0 auto', padding: '2rem 1.5rem' }}>
       {/* Hero */}
       <div style={{ marginBottom: '2rem' }}>
-        <h1 style={{ fontSize: '28px', fontWeight: 800, letterSpacing: '-0.03em', marginBottom: '6px' }}>
-          🔥 AI Fitness Trainer
+        <h1 style={{ fontSize: '21px', fontWeight: 800, letterSpacing: '-0.03em', marginBottom: '6px' }}>
+          <img src="assets/homePageLogo.png" style={{ width: '40px', height: '40px', marginRight: '10px' }} />
+          MuscleForge <span style={{ color: '#10b981' }}>AI Fitness Trainer</span>
         </h1>
         <p style={{ fontSize: '15px', color: '#6b7280', maxWidth: '520px' }}>
           Select a muscle group, generate a personalised workout powered by Gemini AI,
-          then ask your trainer anything about exercise or nutrition.
+          then ask your AI trainer anything about exercise or nutrition.
         </p>
       </div>
 
@@ -56,7 +57,7 @@ export default function Home() {
           disabled={!selected}
           style={{ boxShadow: selected ? '0 4px 14px rgba(16,185,129,0.30)' : 'none' }}
         >
-          {selected ? `Generate ${selected} Workout ✨` : 'Select a muscle group to continue'}
+          {selected ? `Generate ${selected} Workout` : 'Select a muscle group to continue'}
         </Button>
 
         {(loading || workout) && (

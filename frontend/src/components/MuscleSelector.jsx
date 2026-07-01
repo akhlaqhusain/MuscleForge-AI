@@ -1,26 +1,27 @@
 import React from 'react'
 import Card from './ui/Card'
+import './MuscleSelector.css'
 
 const REGIONS = [
-  { id: 'Upper Body',  emoji: '💪', desc: 'Chest, back, arms & shoulders' },
-  { id: 'Lower Body',  emoji: '🦵', desc: 'Quads, hamstrings, glutes & calves' },
-  { id: 'Full Body',   emoji: '⚡', desc: 'Complete compound session' },
-  { id: 'Core',        emoji: '🎯', desc: 'Abs, obliques & lower back' },
+  { id: 'Upper Body',  emoji: <img className="region-emoji" src="assets/upper_body.png" alt="Upper Body" />, desc: 'Chest, back, arms & shoulders' },
+  { id: 'Lower Body',  emoji: <img className="region-emoji" src="assets/lower_body.png" alt="Lower Body" />, desc: 'Quads, hamstrings, glutes & calves' },
+  { id: 'Full Body',   emoji: <img className="region-emoji" src="assets/full_body.png" alt="Full Body" />, desc: 'Complete compound session' },
+  { id: 'Core',        emoji: <img className="region-emoji" src="assets/core.png" alt="Core" />, desc: 'Abs, obliques & lower back' },
 ]
 
 const MUSCLES = [
-  { id: 'Chest',      emoji: '🫁' },
-  { id: 'Back',       emoji: '🔙' },
-  { id: 'Shoulders',  emoji: '🤸' },
-  { id: 'Biceps',     emoji: '💪' },
-  { id: 'Triceps',    emoji: '🦾' },
-  { id: 'Quads',      emoji: '🦵' },
-  { id: 'Hamstrings', emoji: '🏃' },
-  { id: 'Glutes',     emoji: '🍑' },
-  { id: 'Calves',     emoji: '🧗' },
-  { id: 'Abs',        emoji: '⬛' },
-  { id: 'Forearms',   emoji: '✊' },
-  { id: 'Traps',      emoji: '🔺' },
+  { id: 'Chest',      emoji: <img className="muscle-emoji" src="assets/chest.png" alt="Chest" /> },
+  { id: 'Back',       emoji: <img className="muscle-emoji" src="assets/back.png" alt="Back" /> },
+  { id: 'Shoulders',  emoji: <img className="muscle-emoji" src="assets/shoulders.png" alt="Shoulders" /> },
+  { id: 'Biceps',     emoji: <img className="muscle-emoji" src="assets/biceps.png" alt="Biceps" /> },
+  { id: 'Triceps',    emoji: <img className="muscle-emoji" src="assets/triceps.png" alt="Triceps" /> },
+  { id: 'Quads',      emoji: <img className="muscle-emoji" src="assets/quads.png" alt="Quads" /> },
+  { id: 'Hamstrings', emoji: <img className="muscle-emoji" src="assets/hamstrings.png" alt="Hamstrings" /> },
+  { id: 'Glutes',     emoji: <img className="muscle-emoji" src="assets/glutes.png" alt="Glutes" /> },
+  { id: 'Calves',     emoji: <img className="muscle-emoji" src="assets/calves.png" alt="Calves" /> },
+  { id: 'Abs',        emoji: <img className="muscle-emoji" src="assets/abs.png" alt="Abs" /> },
+  { id: 'Forearms',   emoji: <img className="muscle-emoji" src="assets/forearms.png" alt="Forearms" /> },
+  { id: 'Traps',      emoji: <img className="muscle-emoji" src="assets/traps.png" alt="Traps" /> },
 ]
 
 export default function MuscleSelector({ selected, onSelect }) {
@@ -56,10 +57,10 @@ export default function MuscleSelector({ selected, onSelect }) {
       </div>
 
       {/* Divider */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '10px', margin: '1.2rem 0', color: '#9ca3af', fontSize: '12px' }}>
-        <div style={{ flex: 1, height: '0.5px', background: 'rgba(0,0,0,0.08)' }} />
-        <span>or pick a specific muscle</span>
-        <div style={{ flex: 1, height: '0.5px', background: 'rgba(0,0,0,0.08)' }} />
+      <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginTop: '1.2rem', color: '#9ca3af', fontSize: '12px' }}>
+        <p style={{ fontSize: '11px', fontWeight: 700, color: '#9ca3af', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '14px' }}>
+        Train by a specific muscle
+        </p>
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill,minmax(118px,1fr))', gap: '8px' }}>

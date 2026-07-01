@@ -3,10 +3,10 @@ import Card from './ui/Card'
 
 const SECTION_THEMES = [
   { bg: '#fffbeb', border: '#fde68a', icon: '🔥', label_color: '#92400e' },
-  { bg: '#ecfdf5', border: '#6ee7b7', icon: '💪', label_color: '#065f46' },
-  { bg: '#eff6ff', border: '#bfdbfe', icon: '⚡', label_color: '#1e40af' },
-  { bg: '#fdf4ff', border: '#e9d5ff', icon: '🧘', label_color: '#6b21a8' },
-  { bg: '#f0fdfa', border: '#99f6e4', icon: '✅', label_color: '#134e4a' },
+  { bg: '#fffbeb', border: '#fde68a', icon: <img src="assets/warmup.png" alt="Warm-Up" />, label_color: '#92400e' },
+  { bg: '#ecfdf5', border: '#6ee7b7', icon: <img src="assets/main_workout.png" alt="Main Workout" />, label_color: '#065f46' },
+  { bg: '#eff6ff', border: '#bfdbfe', icon: <img src="assets/flexibility.png" alt="Flexibility" />, label_color: '#1e40af' },
+  { bg: '#fdf4ff', border: '#e9d5ff', icon: <img src="assets/protip.png" alt="Pro Tip" />, label_color: '#6b21a8' },
 ]
 
 function parseWorkout(text) {

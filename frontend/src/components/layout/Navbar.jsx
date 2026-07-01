@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
-// import { useAuth } from '../../context/AuthContext'  // ← uncomment when auth is ready
+import { useAuth } from '../../context/AuthContext'
 
 const S = {
   nav: {
@@ -22,7 +22,7 @@ const S = {
 
 export default function Navbar() {
   const { pathname } = useLocation()
-  // const { user, logout } = useAuth()  // ← uncomment when auth is ready
+  const { user, logout } = useAuth()
 
   const navLink = (to, label) => {
     const active = pathname === to
@@ -47,7 +47,7 @@ export default function Navbar() {
     <nav style={S.nav}>
       <div style={S.inner}>
         <Link to="/" style={S.logo}>
-          <span style={{ fontSize: '24px', lineHeight: 1 }}>🔥</span>
+          <img src="assets/nav_logo.png" style={{ width: '40px', height: '40px' }} />
           <span style={S.logoText}>
             MuscleForge <span style={{ color: '#10b981' }}>AI</span>
           </span>
@@ -57,34 +57,30 @@ export default function Navbar() {
           {navLink('/', 'Workout')}
           {navLink('/history', 'History')}
 
-          {/*
-            ── Auth nav items (uncomment when auth is ready) ─────────────
-            {user ? (
-              <>
-                <span style={{ fontSize: '13px', color: '#6b7280', marginLeft: '8px' }}>
-                  Hi, {user.name}
-                </span>
-                <button
-                  onClick={logout}
-                  style={{ marginLeft: '8px', padding: '6px 14px', background: '#fee2e2',
-                    color: '#b91c1c', border: 'none', borderRadius: '8px',
-                    fontSize: '14px', fontWeight: 500, cursor: 'pointer' }}
-                >
-                  Logout
-                </button>
-              </>
-            ) : (
-              <>
-                {navLink('/login', 'Login')}
-                <Link to="/signup" style={{ marginLeft: '4px', padding: '6px 16px',
-                  background: '#10b981', color: '#fff', borderRadius: '8px',
-                  fontSize: '14px', fontWeight: 600 }}>
-                  Sign Up
-                </Link>
-              </>
-            )}
-            ──────────────────────────────────────────────────────────────
-          */}
+          {user ? (
+            <>
+              <span style={{ fontSize: '13px', color: '#6b7280', marginLeft: '8px' }}>
+                Hi, {user.name}
+              </span>
+              <button
+                onClick={logout}
+                style={{ marginLeft: '8px', padding: '6px 14px', background: '#fee2e2',
+                  color: '#b91c1c', border: 'none', borderRadius: '8px',
+                  fontSize: '14px', fontWeight: 500, cursor: 'pointer' }}
+              >
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              {navLink('/login', 'Login')}
+              <Link to="/signup" style={{ marginLeft: '4px', padding: '6px 16px',
+                background: '#10b981', color: '#fff', borderRadius: '8px',
+                fontSize: '14px', fontWeight: 600 }}>
+                Sign Up
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </nav>

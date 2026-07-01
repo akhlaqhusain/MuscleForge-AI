@@ -1,40 +1,52 @@
-/**
- * AuthContext
- * -----------
- * Currently ships as a stub so the app works without login.
- * When you're ready to add authentication:
- *   1. Install jwt-decode:  npm i jwt-decode
- *   2. Implement login() / signup() / logout() to call your /api/auth endpoints
- *   3. Store the JWT in localStorage and attach it via axios interceptor in api/client.js
- *   4. Wrap <ProtectedRoute> around pages that need auth
- *
- * The shape of `user` is intentionally forward-compatible:
- *   { _id, name, email, token }
- */
-
-import React, { createContext, useContext, useState, useCallback } from 'react'
+import React, { createContext, useContext, useState, useCallback, useEffect } from 'react'
+import { authLogin, authSignup } from '../api'
+import client from '../api/client'
 
 const AuthContext = createContext(null)
 
+const TOKEN_KEY = 'MuscleForge_token'
+
 export function AuthProvider({ children }) {
-  // Replace `null` with the result of reading a stored token when auth is ready
   const [user, setUser] = useState(null)
-  const [authLoading, setAuthLoading] = useState(false)
+  const [authLoading, setAuthLoading] = useState(true)
 
-  /* ── Stub methods ─────────────────────────────── */
-
-  const login = useCallback(async (/* email, password */) => {
-    // TODO: call POST /api/auth/login, save JWT, setUser(decoded)
-    throw new Error('Auth not yet implemented')
+  /* ── Hydrate user from stored token on mount ── */
+  useEffect(() => {
+    const token = localStorage.getItem(TOKEN_KEY)
+    if (!token) {
+      setAuthLoading(false)
+      return
+    }
+    client
+      .get('/auth/me')
+      .then((res) => {
+        setUser(res.data.user)
+      })
+      .catch(() => {
+        localStorage.removeItem(TOKEN_KEY)
+      })
+      .finally(() => setAuthLoading(false))
   }, [])
 
-  const signup = useCallback(async (/* name, email, password */) => {
-    // TODO: call POST /api/auth/signup, save JWT, setUser(decoded)
-    throw new Error('Auth not yet implemented')
+  /* ── Login ── */
+  const login = useCallback(async (email, password) => {
+    const data = await authLogin(email, password)
+    localStorage.setItem(TOKEN_KEY, data.token)
+    setUser(data.user)
+    return data
   }, [])
 
+  /* ── Signup ── */
+  const signup = useCallback(async (name, email, password) => {
+    const data = await authSignup(name, email, password)
+    localStorage.setItem(TOKEN_KEY, data.token)
+    setUser(data.user)
+    return data
+  }, [])
+
+  /* ── Logout ── */
   const logout = useCallback(() => {
-    // TODO: clear localStorage token, reset axios header
+    localStorage.removeItem(TOKEN_KEY)
     setUser(null)
   }, [])
 

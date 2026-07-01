@@ -33,11 +33,6 @@ export default function App() {
           <Route path="/"       element={<Home />} />
           <Route path="/login"  element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-
-          {/*
-            Protected routes — wrap with <ProtectedRoute> now.
-            Redirect kicks in automatically once AuthContext.login() is wired up.
-          */}
           <Route
             path="/history"
             element={

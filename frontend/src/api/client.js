@@ -1,12 +1,3 @@
-/**
- * api/client.js
- * Central axios instance.
- * When auth is added:
- *   – The request interceptor below will automatically attach the JWT
- *     from localStorage to every request.
- *   – The response interceptor handles 401 → redirect to /login.
- */
-
 import axios from 'axios'
 
 const client = axios.create({
@@ -18,7 +9,7 @@ const client = axios.create({
 /* ── Request interceptor (JWT attach — ready for auth) ── */
 client.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem('fitai_token') // set this on login
+    const token = localStorage.getItem('MuscleForge_token') // set this on login
     if (token) config.headers.Authorization = `Bearer ${token}`
     return config
   },
@@ -34,8 +25,8 @@ client.interceptors.response.use(
 
     // When auth is live: redirect to login on 401
     if (status === 401) {
-      localStorage.removeItem('fitai_token')
-      // window.location.href = '/login'  // ← uncomment when auth is ready
+      localStorage.removeItem('MuscleForge_token')
+      window.location.href = '/login'
     }
 
     return Promise.reject(new Error(message))
