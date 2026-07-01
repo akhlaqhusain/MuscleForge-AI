@@ -124,112 +124,112 @@ export default function History() {
                 >
                   {item.muscleGroup === "Upper Body" && (
                     <img
-                    src="src/assets/upper_body.png"
+                    src="/assets/upper_body.png"
                     alt="Upper Body"
                     className="muscle-emoji"
                     />
                   )}
                   {item.muscleGroup === "Lower Body" && (
                     <img
-                      src="src/assets/lower_body.png"
+                      src="/assets/lower_body.png"
                       alt="Lower Body"
                       className="muscle-emoji"
                     />
                   )}
                   {item.muscleGroup === "Full Body" && (
                     <img
-                      src="src/assets/full_body.png"
+                      src="/assets/full_body.png"
                       alt="Full Body"
                       className="muscle-emoji"
                     />
                   )}
                   {item.muscleGroup === "Core" && (
                     <img
-                      src="src/assets/core.png"
+                      src="/assets/core.png"
                       alt="Core"
                       className="muscle-emoji"
                     />
                   )}
                   {item.muscleGroup === "Chest" && (
                     <img
-                      src="src/assets/chest.png"
+                      src="/assets/chest.png"
                       alt="Chest"
                       className="muscle-emoji"
                     />
                   )}
                   {item.muscleGroup === "Back" && (
                     <img
-                      src="src/assets/back.png"
+                      src="/assets/back.png"
                       alt="Back"
                       className="muscle-emoji"
                     />
                   )}
                   {item.muscleGroup === "Shoulders" && (
                     <img
-                      src="src/assets/shoulders.png"
+                      src="/assets/shoulders.png"
                       alt="Shoulders"
                       className="muscle-emoji"
                     />
                   )}
                   {item.muscleGroup === "Biceps" && (
                     <img
-                      src="src/assets/biceps.png"
+                      src="/assets/biceps.png"
                       alt="Biceps"
                       className="muscle-emoji"
                     />
                   )}
                   {item.muscleGroup === "Triceps" && (
                     <img
-                      src="src/assets/triceps.png"
+                      src="/assets/triceps.png"
                       alt="Triceps"
                       className="muscle-emoji"
                     />
                   )}
                   {item.muscleGroup === "Quads" && (
                     <img
-                      src="src/assets/quads.png"
+                      src="/assets/quads.png"
                       alt="Quads"
                       className="muscle-emoji"
                     />
                   )}
                   {item.muscleGroup === "Hamstrings" && (
                     <img
-                      src="src/assets/hamstrings.png"
+                      src="/assets/hamstrings.png"
                       alt="Hamstrings"
                       className="muscle-emoji"
                     />
                   )}
                   {item.muscleGroup === "Glutes" && (
                     <img
-                      src="src/assets/glutes.png"
+                      src="/assets/glutes.png"
                       alt="Glutes"
                       className="muscle-emoji"
                     />
                   )}
                   {item.muscleGroup === "Calves" && (
                     <img
-                      src="src/assets/calves.png"
+                      src="/assets/calves.png"
                       alt="Calves"
                       className="muscle-emoji"
                     />
                   )}
                   {item.muscleGroup === "Abs" && (
                     <img
-                      src="src/assets/abs.png"
+                      src="/assets/abs.png"
                       alt="Abs"
                       className="muscle-emoji"
                     />
                   )}
                   {item.muscleGroup === "Forearms" && (
                     <img
-                      src="src/assets/forearms.png"
+                      src="/assets/forearms.png"
                       alt="Forearms"
                       className="muscle-emoji"
                     />
                   )}
                   {item.muscleGroup === "Traps" && (
                     <img
-                      src="src/assets/traps.png"
+                      src="/assets/traps.png"
                       alt="Traps"
                       className="muscle-emoji"
                     />

@@ -47,7 +47,7 @@ export default function Navbar() {
     <nav style={S.nav}>
       <div style={S.inner}>
         <Link to="/" style={S.logo}>
-          <img src="src/assets/nav_logo.png" style={{ width: '40px', height: '40px' }} />
+          <img src="/assets/nav_logo.png" style={{ width: '40px', height: '40px' }} />
           <span style={S.logoText}>
             MuscleForge <span style={{ color: '#10b981' }}>AI</span>
           </span>

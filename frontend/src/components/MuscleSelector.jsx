@@ -3,25 +3,25 @@ import Card from './ui/Card'
 import './MuscleSelector.css'
 
 const REGIONS = [
-  { id: 'Upper Body',  emoji: <img className="region-emoji" src="src/assets/upper_body.png" alt="Upper Body" />, desc: 'Chest, back, arms & shoulders' },
-  { id: 'Lower Body',  emoji: <img className="region-emoji" src="src/assets/lower_body.png" alt="Lower Body" />, desc: 'Quads, hamstrings, glutes & calves' },
-  { id: 'Full Body',   emoji: <img className="region-emoji" src="src/assets/full_body.png" alt="Full Body" />, desc: 'Complete compound session' },
-  { id: 'Core',        emoji: <img className="region-emoji" src="src/assets/core.png" alt="Core" />, desc: 'Abs, obliques & lower back' },
+  { id: 'Upper Body',  emoji: <img className="region-emoji" src="/assets/upper_body.png" alt="Upper Body" />, desc: 'Chest, back, arms & shoulders' },
+  { id: 'Lower Body',  emoji: <img className="region-emoji" src="/assets/lower_body.png" alt="Lower Body" />, desc: 'Quads, hamstrings, glutes & calves' },
+  { id: 'Full Body',   emoji: <img className="region-emoji" src="/assets/full_body.png" alt="Full Body" />, desc: 'Complete compound session' },
+  { id: 'Core',        emoji: <img className="region-emoji" src="/assets/core.png" alt="Core" />, desc: 'Abs, obliques & lower back' },
 ]
 
 const MUSCLES = [
-  { id: 'Chest',      emoji: <img className="muscle-emoji" src="src/assets/chest.png" alt="Chest" /> },
-  { id: 'Back',       emoji: <img className="muscle-emoji" src="src/assets/back.png" alt="Back" /> },
-  { id: 'Shoulders',  emoji: <img className="muscle-emoji" src="src/assets/shoulders.png" alt="Shoulders" /> },
-  { id: 'Biceps',     emoji: <img className="muscle-emoji" src="src/assets/biceps.png" alt="Biceps" /> },
-  { id: 'Triceps',    emoji: <img className="muscle-emoji" src="src/assets/triceps.png" alt="Triceps" /> },
-  { id: 'Quads',      emoji: <img className="muscle-emoji" src="src/assets/quads.png" alt="Quads" /> },
-  { id: 'Hamstrings', emoji: <img className="muscle-emoji" src="src/assets/hamstrings.png" alt="Hamstrings" /> },
-  { id: 'Glutes',     emoji: <img className="muscle-emoji" src="src/assets/glutes.png" alt="Glutes" /> },
-  { id: 'Calves',     emoji: <img className="muscle-emoji" src="src/assets/calves.png" alt="Calves" /> },
-  { id: 'Abs',        emoji: <img className="muscle-emoji" src="src/assets/abs.png" alt="Abs" /> },
-  { id: 'Forearms',   emoji: <img className="muscle-emoji" src="src/assets/forearms.png" alt="Forearms" /> },
-  { id: 'Traps',      emoji: <img className="muscle-emoji" src="src/assets/traps.png" alt="Traps" /> },
+  { id: 'Chest',      emoji: <img className="muscle-emoji" src="/assets/chest.png" alt="Chest" /> },
+  { id: 'Back',       emoji: <img className="muscle-emoji" src="/assets/back.png" alt="Back" /> },
+  { id: 'Shoulders',  emoji: <img className="muscle-emoji" src="/assets/shoulders.png" alt="Shoulders" /> },
+  { id: 'Biceps',     emoji: <img className="muscle-emoji" src="/assets/biceps.png" alt="Biceps" /> },
+  { id: 'Triceps',    emoji: <img className="muscle-emoji" src="/assets/triceps.png" alt="Triceps" /> },
+  { id: 'Quads',      emoji: <img className="muscle-emoji" src="/assets/quads.png" alt="Quads" /> },
+  { id: 'Hamstrings', emoji: <img className="muscle-emoji" src="/assets/hamstrings.png" alt="Hamstrings" /> },
+  { id: 'Glutes',     emoji: <img className="muscle-emoji" src="/assets/glutes.png" alt="Glutes" /> },
+  { id: 'Calves',     emoji: <img className="muscle-emoji" src="/assets/calves.png" alt="Calves" /> },
+  { id: 'Abs',        emoji: <img className="muscle-emoji" src="/assets/abs.png" alt="Abs" /> },
+  { id: 'Forearms',   emoji: <img className="muscle-emoji" src="/assets/forearms.png" alt="Forearms" /> },
+  { id: 'Traps',      emoji: <img className="muscle-emoji" src="/assets/traps.png" alt="Traps" /> },
 ]
 
 export default function MuscleSelector({ selected, onSelect }) {
