@@ -32,7 +32,7 @@ export default function Login() {
     <div style={{ minHeight: 'calc(100vh - 60px)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2rem 1.5rem' }}>
       <div style={{ width: '100%', maxWidth: '420px' }}>
         <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-          <img src="assets/login_logo.png" style={{ width: '40px', height: '40px', marginBottom: '10px' }} />
+          <img src="src/assets/login_logo.png" style={{ width: '40px', height: '40px', marginBottom: '10px' }} />
           <h1 style={{ fontSize: '24px', fontWeight: 800, letterSpacing: '-0.03em', marginTop: '10px', marginBottom: '6px' }}>
             Welcome back
           </h1>
