@@ -6,6 +6,26 @@ import Card from '../components/ui/Card'
 import Button from '../components/ui/Button'
 import Input from '../components/ui/Input'
 
+// Same regex + blocklist as the backend (backend/controllers/authController.js)
+// so the user gets instant feedback instead of waiting on a round trip —
+// the backend still re-checks, since client-side validation is never trusted.
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+const BLOCKED_EMAIL_DOMAINS = new Set([
+  'example.com', 'example.net', 'example.org', 'example.edu',
+  'test.com', 'mailinator.com', 'yopmail.com', 'guerrillamail.com',
+  '10minutemail.com', 'tempmail.com', 'throwawaymail.com', 'fakeinbox.com',
+  'trashmail.com'
+])
+
+function validateEmail(email) {
+  if (!EMAIL_REGEX.test(email)) return 'Please enter a valid email address.'
+  const domain = email.split('@')[1]?.toLowerCase()
+  if (BLOCKED_EMAIL_DOMAINS.has(domain)) {
+    return "That email address can't be used — please enter a real, reachable email."
+  }
+  return null
+}
+
 export default function Signup() {
   const [name, setName]         = useState('')
   const [email, setEmail]       = useState('')
@@ -18,6 +38,8 @@ export default function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     if (!name || !email || !password) { toast.error('Please fill in all fields.'); return }
+    const emailError = validateEmail(email.trim())
+    if (emailError) { toast.error(emailError); return }
     if (password !== confirm)         { toast.error('Passwords do not match.'); return }
     if (password.length < 6)         { toast.error('Password must be at least 6 characters.'); return }
     setLoading(true)

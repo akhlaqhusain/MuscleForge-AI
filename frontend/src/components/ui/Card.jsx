@@ -3,7 +3,7 @@ import React from 'react'
 export default function Card({ children, style = {}, className = '' }) {
   return (
     <div
-      className={className}
+      className={`ui-card ${className}`}
       style={{
         background: '#fff',
         border: '0.5px solid rgba(0,0,0,0.08)',

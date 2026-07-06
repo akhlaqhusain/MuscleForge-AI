@@ -31,7 +31,7 @@ export default function MuscleSelector({ selected, onSelect }) {
         Train by body region
       </p>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: '10px' }}>
+      <div className="region-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: '10px' }}>
         {REGIONS.map((r) => {
           const active = selected === r.id
           return (

@@ -80,3 +80,71 @@ a { text-decoration: none; color: inherit; }
 /* ── Scrollbar ───────────────────────────────────── */
 ::-webkit-scrollbar        { width: 5px; }
 ::-webkit-scrollbar-thumb  { background: var(--gray-300); border-radius: 4px; }
+
+/* ─── Mobile layout (phones, e.g. iPhone widths ~375–430px) ──────────── */
+
+.navbar-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px 0;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 640px) {
+  .navbar-inner {
+    padding: 10px 0.85rem;
+  }
+
+  .navbar-logo-img {
+    width: 30px !important;
+    height: 30px !important;
+  }
+
+  .navbar-logo-text {
+    font-size: 15px !important;
+  }
+
+  .navbar-greeting {
+    display: none;
+  }
+
+  .navbar-links {
+    gap: 2px;
+  }
+
+  .navbar-link {
+    padding: 5px 9px !important;
+    font-size: 13px !important;
+  }
+
+  /* Cards (workout selector, chat, history rows) get tighter padding
+     so content isn't crowded against the screen edges. */
+  .ui-card {
+    padding: 1rem !important;
+  }
+
+  /* 16px stops iOS Safari from auto-zooming the page on input focus. */
+  input {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 520px) {
+  /* 4 fixed columns of region cards get cramped on narrow phones — 2 fits
+     the "Complete compound session"-style descriptions without wrapping badly. */
+  .region-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
