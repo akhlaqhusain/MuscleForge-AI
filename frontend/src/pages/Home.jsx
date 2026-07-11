@@ -37,8 +37,9 @@ export default function Home() {
       {/* Hero */}
       <div style={{ marginBottom: '2rem' }}>
         <h1 style={{ fontSize: '21px', fontWeight: 800, letterSpacing: '-0.03em', marginBottom: '6px' }}>
-          <img src="/assets/homePageLogo.png" style={{ width: '40px', height: '40px', marginRight: '10px' }} />
-          MuscleForge <span style={{ color: '#10b981' }}>AI Fitness Trainer</span>
+          <img src="/assets/homePageLogo.png" style={{ width: '40px', height: '40px'}} />
+          MuscleForge <span className="hero-title-green" style={{ color: '#10b981' }}>AI Fitness Trainer</span>
+          <span className="hero-title-green-mobile" style={{ color: '#10b981' }}>AI</span>
         </h1>
         <p style={{ fontSize: '15px', color: '#6b7280', maxWidth: '520px' }}>
           Select a muscle group, generate a personalised workout powered by Gemini AI,

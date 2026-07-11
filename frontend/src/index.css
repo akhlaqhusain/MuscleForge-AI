@@ -80,3 +80,179 @@ a { text-decoration: none; color: inherit; }
 /* ── Scrollbar ───────────────────────────────────── */
 ::-webkit-scrollbar        { width: 5px; }
 ::-webkit-scrollbar-thumb  { background: var(--gray-300); border-radius: 4px; }
+
+/* ─── Mobile layout (phones, e.g. iPhone widths ~375–430px) ──────────── */
+
+.navbar-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px 0;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 640px) {
+  .navbar-inner {
+    padding: 10px 0.85rem;
+  }
+
+  .navbar-logo-img {
+    width: 30px !important;
+    height: 30px !important;
+  }
+
+  .navbar-logo-text {
+    font-size: 15px !important;
+  }
+
+  .navbar-greeting {
+    display: none;
+  }
+
+  .navbar-links {
+    gap: 2px;
+  }
+
+  .navbar-link {
+    padding: 5px 9px !important;
+    font-size: 13px !important;
+  }
+
+  /* Cards (workout selector, chat, history rows) get tighter padding
+     so content isn't crowded against the screen edges. */
+  .ui-card {
+    padding: 1rem !important;
+  }
+
+  /* 16px stops iOS Safari from auto-zooming the page on input focus. */
+  input {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 520px) {
+  /* 4 fixed columns of region cards get cramped on narrow phones — 2 fits
+     the "Complete compound session"-style descriptions without wrapping badly. */
+  .region-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+
+/* ==========================================================================
+   Responsive Navigation Menu Styles (Breakpoint: 570px)
+   ========================================================================== */
+
+/* Base Styles for the Hamburger Button (Hidden on Desktop) */
+.navbar-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 210;
+}
+
+.navbar-hamburger div {
+  width: 24px;
+  height: 2.5px;
+  background-color: #374151; /* Dark Gray / Charcoal */
+  border-radius: 5px;
+  transition: all 0.25s ease-in-out;
+}
+
+/* Media Query for screens 570px and smaller */
+@media (max-width: 570px) {
+  
+  /* Show Hamburger Icon */
+  .navbar-hamburger {
+    display: flex;
+  }
+
+  /* Animate hamburger bars to turn into an 'X' shape when open */
+  .navbar-hamburger.open .bar1 {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .navbar-hamburger.open .bar2 {
+    opacity: 0;
+  }
+  .navbar-hamburger.open .bar3 {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* Reposition and stack links vertically in a mobile dropdown list */
+  .navbar-links {
+    display: none; /* Hidden by default on mobile view */
+    flex-direction: column;
+    position: absolute;
+    top: 100%; /* Sits cleanly right under the header bar */
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(16px);
+    padding: 16px;
+    gap: 12px;
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    z-index: 199;
+  }
+
+  /* Show navigation container when open class is applied */
+  .navbar-links.open {
+    display: flex;
+  }
+
+  /* Standardizes text layout on stacked elements */
+  .navbar-links .navbar-link {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+    margin-left: 0 !important; /* Overwrite inline desktop margins */
+  }
+
+  .navbar-greeting {
+    width: 100%;
+    text-align: center;
+    margin-left: 0 !important;
+    margin-bottom: 4px;
+  }
+}
+
+/* Styling for the green title part */
+.hero-title-green {
+  color: #10b981; /* Green color */
+  display: none;  /* Forces it to its own line on mobile */
+}
+
+/* Brings it back onto one line for screens larger than 570px */
+@media (min-width: 571px) {
+  .hero-title-green {
+    display: inline; 
+  }
+}
+
+
+.hero-title-green-mobile{
+  display: inline;
+}
+
+@media (min-width: 571px) {
+  .hero-title-green-mobile{
+    display: none;
+  }
+}
